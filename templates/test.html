@@ -1,0 +1,23 @@
+
+{% load static %}
+{% load rbac %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test</title>
+    <style>
+        {% rbac_css %}
+    </style>
+</head>
+<body>
+    {% menus request %}
+    <script src="{% static 'rbac/js/jquery-1.12.4.js' %}"></script>
+    <script>
+        $(function () {
+            {% rbac_js %}
+        });
+    </script>
+</body>
+</html>

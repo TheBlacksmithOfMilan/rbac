@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu_list</title>
+    <link href="{% static 'dist/css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1>菜单操作</h1>
+<div class="container">
+    <div class="row">
+        <a href="/rbac/menu/menu_add.html/">
+            <button class="btn btn-primary">添加</button>
+        </a>
+        <table class="table table-hover table-bordered">
+            {% for menu in menu_list %}
+                <tr>
+                    <td>{{ menu.pk }}</td>
+                    <td>{{ menu.caption }}</td>
+                    <td>{{ menu.parent }}</td>
+                    <td>
+                        <a href="/rbac/menu/menu_edit/{{ menu.pk }}.html/">
+                            <button class="btn btn-primary">编辑</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-danger">删除</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

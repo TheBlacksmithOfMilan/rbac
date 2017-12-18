@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>role_add</title>
+</head>
+<body>
+<h1>编辑角色</h1>
+<form method="POST" novalidate>
+    {% csrf_token %}
+    <!--  model_form.username 可以分别取到字段 -->
+    {{ model_form.as_p }}
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

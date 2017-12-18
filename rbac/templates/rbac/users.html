@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user_list</title>
+    <link href="{% static 'dist/css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1>用户操作</h1>
+<div class="container">
+    <div class="row">
+        <a href="/rbac/user/add.html/">
+            <button class="btn btn-primary">添加</button>
+        </a>
+        <table class="table table-hover table-bordered">
+            {% for user in user_list %}
+                <tr>
+                    <td>{{ user.pk }}</td>
+                    <td>{{ user.nickname }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>
+                        <a href="/rbac/user/edit/{{ user.pk }}.html/">
+                            <button class="btn btn-primary">编辑</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-danger">删除</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

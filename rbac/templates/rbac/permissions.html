@@ -1,0 +1,41 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>menu_list</title>
+    <link href="{% static 'dist/css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1>权限操作</h1>
+<div class="container">
+    <div class="row">
+        <a href="/rbac/permission/permission_add.html/">
+            <button class="btn btn-primary">添加</button>
+        </a>
+        <table class="table table-hover table-bordered">
+            {% for permission in permission_list %}
+                <tr>
+                    <td>{{ permission.pk }}</td>
+                    <td>{{ permission.title }}</td>
+                    <td>{{ permission.url }}</td>
+                    <td>{{ permission.menu }}</td>
+                    <td>
+                        <a href="/rbac/permission/permission_edit/{{ permission.pk }}.html/">
+                            <button class="btn btn-primary">编辑</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-danger">删除</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>

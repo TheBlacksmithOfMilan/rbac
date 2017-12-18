@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>role_list</title>
+    <link href="{% static 'dist/css/bootstrap.css' %}" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<h1>菜单操作</h1>
+<div class="container">
+    <div class="row">
+        <a href="/rbac/role/role_add.html/">
+            <button class="btn btn-primary">添加</button>
+        </a>
+        <table class="table table-hover table-bordered">
+            {% for role in role_list %}
+                <tr>
+                    <td>{{ role.pk }}</td>
+                    <td>{{ role.name }}</td>
+                    <td>{{ role.permissions }}</td>
+                    <td>
+                        <a href="/rbac/role/role_edit/{{ role.pk }}.html/">
+                            <button class="btn btn-primary">编辑</button>
+                        </a>
+                        <a href="#">
+                            <button class="btn btn-danger">删除</button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+
+
+</body>
+</html>
